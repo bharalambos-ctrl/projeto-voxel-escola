@@ -1,0 +1,16 @@
+# ignorar arquivos gerados pelos VSCode
+**/bin/
+**/obj/
+.vs/
+
+# Configurações pessoais e do VSCode
+.vscode/
+*.user
+*.suo
+
+# Arquivos de segredo. Quando criados, irão ser protegidos.
+.env
+appsettings.Development.json
+
+# Outros
+node_modules/

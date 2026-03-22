@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Voxel.API/Voxel.API.csproj" />
+  <Project Path="Voxel.Application/Voxel.Application.csproj" />
+  <Project Path="Voxel.Domain/Voxel.Domain.csproj" />
+  <Project Path="Voxel.Infrastructure/Voxel.Infrastructure.csproj" />
+</Solution>
