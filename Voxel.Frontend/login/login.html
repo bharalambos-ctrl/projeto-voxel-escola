@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voxel - Escola Técnica</title>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container-login">
+    <h2 class="login-text">Faça seu login</h2>
+
+    <div class="input-group">
+        <i class="fa-solid fa-circle-user"></i>
+        <input type="email" id="email" placeholder="E-mail">
+    </div>
+
+    <div class="input-group">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" id="password" placeholder="Senha">
+    </div>
+
+    <button onclick="logar()">Entrar</button>
+    <p id="mensagem"></p>
+
+    <p class="divider">ou</p>
+
+<div class="social-login">
+    <button class="social-btn google">
+        <i class="fa-brands fa-google"></i>
+        Entrar com Google
+    </button>
+
+    <button class="social-btn github">
+        <i class="fa-brands fa-github"></i>
+        Entrar com GitHub
+    </button>
+</div>
+
+<p class="register">
+    Não tem conta? <a href="#">Criar conta</a>
+</p>
+</div>
+<script src="../js/auth.js"></script>
+</body>
+</html>
