@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Home - Voxel</title>
 </head>
 <body>
-    <header class="navbar">
+    <nav class="navbar">
   <img src="logo-vexel-verde.png" alt="Voxel Logo" class="logo">
-  <nav>
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <div class="nav-list" id="nav-list">
     <a href="#">Sobre</a>
     <a href="#">Cursos</a>
     <a href="#">Depoimentos</a>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <section class="hero">
-  <h1>Seu futuro começa aqui</h1>
-  <p>Aprenda tecnologia com quem entende</p>
+  <h1>Seu futuro começa <span>aqui!</span></h1>
+  <p>Aprenda com quem entende do mercado,<br>
+e transforme sua paixão por games em <span>carreira!</span></p>
   <button>Ver cursos</button>
 </section>
 
@@ -33,5 +38,6 @@
     <p>Domine APIs e bancos de dados</p>
   </div>
 </section>
+<script src="../js/menu.js"></script>
 </body>
 </html>
