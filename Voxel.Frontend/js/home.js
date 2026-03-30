@@ -10,3 +10,4 @@ document.addEventListener("DOMContentLoaded", () => {
     icon.classList.toggle("fa-xmark");
   });
 });
+
