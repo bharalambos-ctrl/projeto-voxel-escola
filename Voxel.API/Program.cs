@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Voxel.Application.Interfaces;
+using Voxel.Application.Services;
 using Voxel.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,13 @@ builder.Services.AddCors(options => {
         policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
     });
 });
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<VoxelContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -31,8 +40,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-builder.Services.AddDbContext<VoxelContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));

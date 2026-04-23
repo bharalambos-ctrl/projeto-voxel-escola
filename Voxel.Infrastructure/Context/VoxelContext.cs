@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Voxel.Domain.Entities; // Importa sua classe Usuario
+﻿﻿using Microsoft.EntityFrameworkCore;
+using Voxel.Domain.Entities;
+using Voxel.Infrastructure.Persistence.Configurations;
 
 namespace Voxel.Infrastructure.Context
 {
@@ -11,5 +12,11 @@ namespace Voxel.Infrastructure.Context
 
         // Isso diz ao banco: "Crie uma tabela de Usuarios baseada na minha classe"
         public DbSet<Usuario> Usuarios { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
+        }
     }
 }

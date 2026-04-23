@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Voxel.Application.DTOs; // Você precisará criar o DTO abaixo
+﻿﻿﻿﻿using Microsoft.AspNetCore.Mvc;
+using Voxel.Application.DTOs;
+using Voxel.Application.Interfaces;
+using System.Threading.Tasks;
 
 namespace Voxel.API.Controllers
 {
@@ -7,16 +9,32 @@ namespace Voxel.API.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginRequest request)
-        {
-            // Simulação de lógica por enquanto
-            if (request.Email == "admin@voxel.com" && request.Senha == "123456")
-            {
-                return Ok(new { token = "JWT-TOKEN-GERADO-AQUI", mensagem = "Bem-vindo à Voxel!" });
-            }
+        private readonly IAuthService _authService;
 
-            return Unauthorized(new { mensagem = "Usuário ou senha inválidos" });
+        public AuthController(IAuthService authService)
+        {
+            _authService = authService;
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            var response = await _authService.LoginAsync(request);
+
+            if (response == null)
+                return Unauthorized(new { mensagem = "Usuário ou senha inválidos" });
+
+            return Ok(response);
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+        {
+            var sucesso = await _authService.RegisterAsync(request);
+            if (!sucesso)
+                return BadRequest(new { mensagem = "Erro ao cadastrar. Verifique os dados ou o aceite dos termos." });
+
+            return Ok(new { mensagem = "Cadastro realizado com sucesso!" });
         }
     }
 }
