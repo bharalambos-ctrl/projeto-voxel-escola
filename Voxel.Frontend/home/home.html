@@ -19,7 +19,7 @@
 <section class="hero">
   <h1>Seu futuro começa aqui</h1>
   <p>Aprenda tecnologia com quem entende</p>
-  <button>Ver cursos</button>
+  <button id="btn-cursos">Ver cursos</button>
 </section>
 
 <section class="cards">
@@ -33,5 +33,31 @@
     <p>Domine APIs e bancos de dados</p>
   </div>
 </section>
+<section id="courses-list" class="cards" style="display:none;">
+  <!-- cursos serão carregados dinamicamente -->
+</section>
+<script>
+  async function fetchCourses() {
+    try {
+      const res = await fetch('https://localhost:7069/api/courses');
+      if (!res.ok) throw new Error('Erro ao obter cursos');
+      const courses = await res.json();
+      const container = document.getElementById('courses-list');
+      container.innerHTML = '';
+      courses.forEach(c => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `<h3>${c.title}</h3><p>${c.description}</p>`;
+        container.appendChild(div);
+      });
+      container.style.display = 'block';
+      window.scrollTo({ top: container.offsetTop, behavior: 'smooth' });
+    } catch (err) {
+      alert('Não foi possível carregar cursos: ' + err.message);
+    }
+  }
+
+  document.getElementById('btn-cursos').addEventListener('click', fetchCourses);
+</script>
 </body>
 </html>

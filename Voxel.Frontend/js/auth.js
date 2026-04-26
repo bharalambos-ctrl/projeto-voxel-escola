@@ -1,11 +1,16 @@
-const API_URL = 'https://localhost:5500/api'; // Ajuste a porta conforme o seu Visual Studio
+const API_URL = 'https://localhost:7069/api'; // Ajuste a porta conforme o seu Visual Studio
 
 async function logar() {
-    window.location.href = "../home/home.html";
-}
-/*async function logar() {
+    const mensagemEl = document.getElementById('mensagem');
+    mensagemEl.textContent = '';
+
     const email = document.getElementById('email').value;
     const senha = document.getElementById('password').value;
+
+    if (!email || !senha) {
+        mensagemEl.textContent = 'Preencha email e senha.';
+        return;
+    }
 
     try {
         const response = await fetch(`${API_URL}/auth/login`, {
@@ -19,12 +24,13 @@ async function logar() {
         if (response.ok) {
             // Salva o token para usar depois em outras telas (como a de cursos)
             localStorage.setItem('voxel_token', data.token);
-            alert("Login realizado! Redirecionando...");
-            window.location.href = '../home/home.html'; // Redireciona para a home após o login
+            mensagemEl.textContent = 'Login realizado! Redirecionando...';
+            setTimeout(() => window.location.href = '../home/home.html', 700);
         } else {
-            alert("Erro: " + data.mensagem);
+            mensagemEl.textContent = data.mensagem || 'Erro ao fazer login';
         }
     } catch (error) {
-        console.error("Erro na conexão:", error);
+        console.error('Erro na conexão:', error);
+        mensagemEl.textContent = 'Erro na conexão com a API.';
     }
-}*/
+}
