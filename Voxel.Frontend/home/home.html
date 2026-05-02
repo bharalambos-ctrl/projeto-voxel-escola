@@ -4,34 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <title>Home - Voxel</title>
 </head>
 <body>
-    <header class="navbar">
-  <img src="logo-vexel-verde.png" alt="Voxel Logo" class="logo">
-  <nav>
+  <nav class="navbar">
+  <div class="container-logo">
+  <img src="logo-nav-verde.png" alt="Voxel Logo" class="logo">
+  <h1 class="logo-text">Voxel<span>.</span> </h1>
+</div>
+
+  <div class="nav-list" id="nav-list">
+    <a href="hero">Home</a>
     <a href="#">Sobre</a>
-    <a href="#">Cursos</a>
+    <a href="#secao-trilhas">Trilhas</a>
     <a href="#">Depoimentos</a>
-  </nav>
+    <a href="#contato">Contato</a>
+  </div>
+  
+  <div class="nav-auth-desktop">
+    <a href="#" class="btn-login">Login</a>
+    <a href="#" class="btn-matricula">Matricule-se</a>
+  </div>
+  
+  <div class="nav-auth-mobile">
+    <a href="#" class="btn-login">Login</a>
+    <a href="#" class="btn-matricula">Matricule-se</a>
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</nav>
 </header>
 
 <section class="hero">
-  <h1>Seu futuro começa aqui</h1>
-  <p>Aprenda tecnologia com quem entende</p>
-  <button>Ver cursos</button>
+
+    <!-- Partículas de pixel flutuando -->
+    <div class="hero-particles">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Linha neon na base -->
+    <div class="hero-neon-line"></div>
+
+    <div class="hero-text-block">
+
+      <!-- Badge turma -->
+      <div class="hero-badge">
+        <i class="fa-solid fa-gamepad"></i> Nova turma &nbsp;·&nbsp; Inscrições abertas
+      </div>
+
+      <h1>Seu futuro começa <span>aqui!</span></h1>
+
+      <p>Aprenda com quem entende do mercado e transforme sua paixão por games em <span>carreira!</span></p>
+
+      <!-- Stats rápidos -->
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <strong>+5k</strong>
+          <small>Alunos ativos</small>
+        </div>
+        <div class="hero-stat-item">
+          <strong>05</strong>
+          <small>Trilhas</small>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="hero-ctas">
+        <a href="#secao-trilhas" class="btn-saber-mais">Explorar Trilhas</a>
+        <a href="#" class="btn-ghost">
+          <i class="fa-regular fa-circle-play"></i> Ver como funciona
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Visual -->
+    <div class="hero-visual">
+      <div class="circle-bg"></div>
+      <div class="circle-ring"></div>
+
+      <!-- HUD estilo terminal de game -->
+      <div class="hero-hud">
+        <span class="hero-hud-dot"></span>ONLINE<br>
+        &gt; LEVEL UP<br>
+        &gt; XP: 9999<br>
+        &gt; STATUS: READY
+      </div>
+
+      <img src="estudante.png" alt="Estudante com headset VR" class="aluno-img">
+    </div>
+
+  </section>
+
+<section id="secao-trilhas" class="secao-trilhas">
+  <h2 class="titulo">Conheça nossas trilhas!</h2>
+  <div class="trilhas-container">
+    <div class="trilha-card">
+    <svg class="card-border-svg">
+    <rect class="card-border-rect" width="100%" height="100%" rx="20" ry="20" pathLength="100"></rect>
+  </svg>
+    <span class="number">01</span>
+    <h3>Do Zero ao Seu Primeiro Game!</h3>
+    <p class="pitch">Tire sua ideia do papel e dê vida ao seu próprio universo.</p>
+    <p class="description">A jornada completa para quem quer dominar o ciclo total de desenvolvimento.</p>
+    <button class="btn-saber-mais">Ver Grade Curricular</button>
+    </div>
+
+    <div class="trilha-card">
+    <svg class="card-border-svg">
+    <rect class="card-border-rect" width="100%" height="100%" rx="20" ry="20" pathLength="100"></rect>
+  </svg>
+    <span class="number">02</span>
+    <h3>Mestre do Design & Modelagem</h3>
+    <p class="pitch">Crie mundos visualmente deslumbrantes com arte de ponta.</p>
+    <p class="description">Trilha focada na estética e imersão. Domine escultura digital.</p>
+    <button class="btn-saber-mais">Ver Grade Curricular</button>
+    </div>
+
+    <div class="trilha-card">
+    <svg class="card-border-svg">
+    <rect class="card-border-rect" width="100%" height="100%" rx="20" ry="20" pathLength="100"></rect>
+  </svg>
+    <span class="number">03</span>
+    <h3>Mago dos Códigos</h3>
+    <p class="pitch">Construa sistemas robustos e escaláveis.</p>
+    <p class="description">Esta trilha é para quem quer saber como funciona o motor por trás do jogo. Aprenda arquitetura de sistemas em C#, otimização de performance e muito mais!</p>
+    <button class="btn-saber-mais">Ver Grade Curricular</button>
+    </div>
+
+    <div class="trilha-card">
+    <svg class="card-border-svg">
+    <rect class="card-border-rect" width="100%" height="100%" rx="20" ry="20" pathLength="100"></rect>
+  </svg>
+    <span class="number">04</span>
+    <h3>Alquimista Visual</h3>
+    <p class="pitch">Onde a lógica encontra a arte para criar o impossível.</p>
+    <p class="description">Torne-se o especialista que domina magias, explosões e iluminação dinâmica. Aprenda a criar efeitos visuais cinematográficos que reagem em tempo real ao jogador.</p>
+    <button class="btn-saber-mais">Ver Grade Curricular</button>
+    </div>
+
+    <div class="trilha-card">
+    <svg class="card-border-svg">
+    <rect class="card-border-rect" width="100%" height="100%" rx="20" ry="20" pathLength="100"></rect>
+  </svg>
+    <span class="number">05</span>
+    <h3>Lendário Indie</h3>
+    <p class="pitch">"Transforme seu sonho em um estúdio de sucesso."</p>
+    <p class="description">Aprenda o caminho para ser um desenvolvedor independente. Do protótipo rápido (MVP) à publicação na Steam e estratégias para fazer o seu jogo ser notado.</p>
+    <button class="btn-saber-mais">Ver Grade Curricular</button>
+  </div>
+  </div>
 </section>
 
-<section class="cards">
-  <div class="card">
-    <h3>Desenvolvimento Web</h3>
-    <p>Aprenda HTML, CSS e JavaScript</p>
-  </div>
+<section id="contato" class="secao-contato">
+    <footer>
+      <p>&copy; 2024 Voxel. Todos os direitos reservados.</p>
+    </footer>
+  </section>
 
-  <div class="card">
-    <h3>Back-end</h3>
-    <p>Domine APIs e bancos de dados</p>
-  </div>
-</section>
+<script src="../js/home.js"></script>
 </body>
 </html>
