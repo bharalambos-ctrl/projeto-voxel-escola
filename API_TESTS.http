@@ -1,0 +1,82 @@
+### Variáveis
+@baseUrl = http://localhost:5006/api
+@contentType = application/json
+
+### ========================================
+### TESTES DE AUTENTICAÇÃO
+### ========================================
+
+### Teste 1: Verificar se a API está rodando ✅ (GET)
+GET {{baseUrl}}/home/teste
+
+### Teste 2: Login com Admin ✅ (POST)
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "admin@voxel.com",
+  "senha": "123456"
+}
+
+### Teste 3: Login com João ✅ (POST)
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "joao@voxel.com",
+  "senha": "123456"
+}
+
+### Teste 4: Login com Maria ✅ (POST)
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "maria@voxel.com",
+  "senha": "123456"
+}
+
+### Teste 5: Tentativa de login com credenciais erradas ✅ (POST)
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "admin@voxel.com",
+  "senha": "senha_errada"
+}
+
+### Teste 6: Registrar novo usuário ✅ (POST)
+POST {{baseUrl}}/auth/registrar
+Content-Type: {{contentType}}
+
+{
+  "nome": "Pedro Costa",
+  "email": "pedro@voxel.com",
+  "senha": "senha123"
+}
+
+### Teste 7: Tentar registrar com email duplicado ✅ (POST)
+POST {{baseUrl}}/auth/registrar
+Content-Type: {{contentType}}
+
+{
+  "nome": "Outro Admin",
+  "email": "admin@voxel.com",
+  "senha": "outra_senha"
+}
+
+### ========================================
+### TESTES DE HOME/TRILHAS
+### ========================================
+
+### Teste 8: Listar todas as trilhas ✅ (GET)
+GET {{baseUrl}}/home/trilhas
+
+### Teste 9: Obter dados do usuário ID 1 ✅ (GET)
+GET {{baseUrl}}/home/usuario/1
+
+### Teste 10: Obter dados do usuário ID 2 ✅ (GET)
+GET {{baseUrl}}/home/usuario/2
+
+### Teste 11: Tentar obter usuário inexistente ✅ (GET)
+GET {{baseUrl}}/home/usuario/999
